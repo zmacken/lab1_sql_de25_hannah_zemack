@@ -3,8 +3,8 @@ import dlt
 from dlt.sources.sql_database import sql_database
 from pathlib import Path
 
-SQLITE_PATH = Path(__file__).parent / "sqlite-sakila.db"
-DUCKDB_PATH = Path(__file__).parent / "sakila.duckdb"
+SQLITE_PATH = Path(__file__).parent / "data/sqlite-sakila.db"
+DUCKDB_PATH = Path(__file__).parent / "data/sakila.duckdb"
 
 source = sql_database(credentials=f"sqlite:///{SQLITE_PATH}", schema="main")
 

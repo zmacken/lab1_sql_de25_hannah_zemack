@@ -506,6 +506,7 @@ dependencies = [
     { name = "dlt", extra = ["parquet", "sql-database"] },
     { name = "duckdb" },
     { name = "ipykernel" },
+    { name = "numpy" },
     { name = "pandas" },
 ]
 
@@ -514,6 +515,7 @@ requires-dist = [
     { name = "dlt", extras = ["parquet", "sql-database"], specifier = ">=1.19.0" },
     { name = "duckdb", specifier = ">=1.4.2" },
     { name = "ipykernel", specifier = ">=7.1.0" },
+    { name = "numpy", specifier = ">=2.3.5" },
     { name = "pandas", specifier = ">=2.3.3" },
 ]
 

@@ -1,1 +1,1 @@
-from staging.film;
+select * from staging.film;

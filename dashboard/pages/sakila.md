@@ -16,25 +16,31 @@ title: The sakila database
 ````
 
 
--- ```sql actor_movies
---     SELECT 
---             a.actor_id,
---             a.first_name,
---             a.last_name,
---             COUNT(fa.film_id) as number_films
---     FROM  sakila.actor as a
---     LEFT JOIN film_actor as fa
---            ON a.actor_id = fa.actor_id
---     GROUP BY a.actor_id, a.first_name, a.last_name
---     ORDER BY number_films DESC
---     LIMIT 10;
--- ```
-
 ```sql actor_movies
 SELECT
        actor_id,
        CONCAT(first_name, ' ', last_name) as name,
        COUNT(film_id) as count_films
 FROM sakila.actor
-GROUP BY actor_id, name;
+GROUP BY actor_id, name
+LIMIT 10;
 ```
+
+<BarChart
+ data={actor_movies}
+ x=name
+ y=count_films
+/>
+
+```sql store_revenue
+    SELECT
+           store_id,
+           address,
+           DATE_TRUNC('month', payment_date) as trunc_month,
+           SUM(amount) as total_revenue
+    FROM sakila.payment
+    GROUP BY store_id, trunc_month, address
+    ORDER BY total_revenue DESC
+    LIMIT 10;
+```
+

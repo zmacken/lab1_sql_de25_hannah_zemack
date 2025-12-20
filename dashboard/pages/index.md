@@ -1,56 +1,13 @@
 ---
-title: Welcome to Evidence
+title: Welcome to sakila
 ---
 
-<Details title='How to edit this page'>
+_This is a overview of some of the data available in the sakila database. And how we can use it to further understand the buisness._
 
-  This page can be found in your project at `/pages/index.md`. Make a change to the markdown file and save it to see the change take effect in your browser.
+This dashboard contains:
+<Details title="Film data">
+An overview of the films existing in the database.
 </Details>
-
-```sql categories
-  select
-      category
-  from needful_things.orders
-  group by category
-```
-
-<Dropdown data={categories} name=category value=category>
-    <DropdownOption value="%" valueLabel="All Categories"/>
-</Dropdown>
-
-<Dropdown name=year>
-    <DropdownOption value=% valueLabel="All Years"/>
-    <DropdownOption value=2019/>
-    <DropdownOption value=2020/>
-    <DropdownOption value=2021/>
-</Dropdown>
-
-```sql orders_by_category
-  select 
-      date_trunc('month', order_datetime) as month,
-      sum(sales) as sales_usd,
-      category
-  from needful_things.orders
-  where category like '${inputs.category.value}'
-  and date_part('year', order_datetime) like '${inputs.year.value}'
-  group by all
-  order by sales_usd desc
-```
-
-<BarChart
-    data={orders_by_category}
-    title="Sales by Month, {inputs.category.label}"
-    x=month
-    y=sales_usd
-    series=category
-/>
-
-## What's Next?
-- [Connect your data sources](settings)
-- Edit/add markdown files in the `pages` folder
-- Deploy your project with [Evidence Cloud](https://evidence.dev/cloud)
-
-## Get Support
-- Message us on [Slack](https://slack.evidence.dev/)
-- Read the [Docs](https://docs.evidence.dev/)
-- Open an issue on [Github](https://github.com/evidence-dev/evidence)
+<Details title="Revenue">
+The revenue from each of the different stores will be presented. 
+</Details>

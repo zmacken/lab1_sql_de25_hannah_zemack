@@ -14,6 +14,8 @@ title: Revenue
     LIMIT 10;
 ```
 
+
+
 <Heatmap 
     data={store_revenue} 
     x=trunc_month 
